@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DrawViewController.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)startDrawing:(id)sender {
+    DrawViewController* draw = [[DrawViewController alloc] init];
+    [self presentViewController:draw animated:YES completion:nil];
 }
 
 @end

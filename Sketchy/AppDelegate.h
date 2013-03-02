@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kSketchyAppProtocol @"mobisocial-sketchy://draw"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

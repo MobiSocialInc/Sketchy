@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UIButton *drawButton;
+- (IBAction)startDrawing:(id)sender;
 @end

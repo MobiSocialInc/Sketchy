@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#import "PasteboardObjUtil.h"
+#import "GlueStick.h"
 
 @implementation ObjRepresentation {
 }
@@ -196,7 +196,7 @@
 @end
 
 
-@implementation PasteboardObjUtil
+@implementation GlueStick
 
 +(ObjRepresentation*) takeObjFromPasteboardWithURL:(NSURL*)url {
     UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
@@ -263,8 +263,8 @@
 }
 
 +(void)launchTwoPlusWithObj:(ObjRepresentation *)obj {
-    [PasteboardObjUtil putPasteboardObj:obj];
-    if (![PasteboardObjUtil isTwoPlusInstalled]) {
+    [GlueStick putPasteboardObj:obj];
+    if (![GlueStick isTwoPlusInstalled]) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"2Plus not installed." message:@"2Plus lets you share data with people in your address book, but it's not installed. Get it from the App Store." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];
     }

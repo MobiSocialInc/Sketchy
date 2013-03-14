@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "DrawViewController.h"
-#import "PasteboardObjUtil.h"
+#import "GlueStick.h"
 
 #import "Line.h"
 #import "TouchDrawView.h"
@@ -92,7 +92,7 @@
     [dict setObject:[NSNumber numberWithInt:1337] forKey:@"w00t"];
     [obj setJson:dict];
     [obj setDisplayNoun:@"Sketch" withTitle:@"Sketchy Sketch" withThumbnail:image withCaption:@"Hello, this is a sample post from Sketchy, you can make your own by clicking here. If you dont want to click here, then just ignore this paragraph and do something else."];
-    [PasteboardObjUtil putPasteboardObj:obj];
+    [GlueStick putPasteboardObj:obj];
 }
 
 @end

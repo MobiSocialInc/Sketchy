@@ -23,7 +23,7 @@
 		D42102CB16E288C500CA688B /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C216E288C500CA688B /* DrawViewController.m */; };
 		D42102CC16E288C500CA688B /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42102C316E288C500CA688B /* DrawViewController.xib */; };
 		D42102CD16E288C500CA688B /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C516E288C500CA688B /* Line.m */; };
-		D42102CE16E288C500CA688B /* PasteboardObjUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C716E288C500CA688B /* PasteboardObjUtil.m */; };
+		D42102CE16E288C500CA688B /* GlueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C716E288C500CA688B /* GlueStick.m */; };
 		D42102CF16E288C500CA688B /* TouchDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C916E288C500CA688B /* TouchDrawView.m */; };
 		D42102D216E28FE500CA688B /* sketch.png in Resources */ = {isa = PBXBuildFile; fileRef = D42102D116E28FE500CA688B /* sketch.png */; };
 		D42102D416E290CC00CA688B /* sketch57.png in Resources */ = {isa = PBXBuildFile; fileRef = D42102D316E290CC00CA688B /* sketch57.png */; };
@@ -55,8 +55,8 @@
 		D42102C316E288C500CA688B /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
 		D42102C416E288C500CA688B /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		D42102C516E288C500CA688B /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
-		D42102C616E288C500CA688B /* PasteboardObjUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PasteboardObjUtil.h; path = Draw/PasteboardObjUtil.h; sourceTree = "<group>"; };
-		D42102C716E288C500CA688B /* PasteboardObjUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PasteboardObjUtil.m; path = Draw/PasteboardObjUtil.m; sourceTree = "<group>"; };
+		D42102C616E288C500CA688B /* GlueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueStick.h; path = Draw/GlueStick.h; sourceTree = "<group>"; };
+		D42102C716E288C500CA688B /* GlueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueStick.m; path = Draw/GlueStick.m; sourceTree = "<group>"; };
 		D42102C816E288C500CA688B /* TouchDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrawView.h; sourceTree = "<group>"; };
 		D42102C916E288C500CA688B /* TouchDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDrawView.m; sourceTree = "<group>"; };
 		D42102D116E28FE500CA688B /* sketch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sketch.png; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 		D42102D016E288CF00CA688B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D42102C616E288C500CA688B /* PasteboardObjUtil.h */,
-				D42102C716E288C500CA688B /* PasteboardObjUtil.m */,
+				D42102C616E288C500CA688B /* GlueStick.h */,
+				D42102C716E288C500CA688B /* GlueStick.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 				D42102CA16E288C500CA688B /* ColorPicker.m in Sources */,
 				D42102CB16E288C500CA688B /* DrawViewController.m in Sources */,
 				D42102CD16E288C500CA688B /* Line.m in Sources */,
-				D42102CE16E288C500CA688B /* PasteboardObjUtil.m in Sources */,
+				D42102CE16E288C500CA688B /* GlueStick.m in Sources */,
 				D42102CF16E288C500CA688B /* TouchDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +374,7 @@
 				D42102BC16E2878A00CA688B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

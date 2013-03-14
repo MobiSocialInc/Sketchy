@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "PasteboardObjUtil.h"
+#import "GlueStick.h"
 #import "DrawViewController.h"
 
 @implementation AppDelegate
@@ -24,7 +24,7 @@
         DrawViewController *draw = [[DrawViewController alloc] init];
 
         UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:NO];
-        draw.appCallbackURL = [PasteboardObjUtil callbackURLFromPasteboardURL:url];
+        draw.appCallbackURL = [GlueStick callbackURLFromPasteboardURL:url];
         // if we were launched to edit a picture, pull it from the pasteboard:
         draw.initialImage = pasteboard.image;
         [pasteboard setItems:nil];

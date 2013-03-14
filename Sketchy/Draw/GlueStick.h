@@ -37,7 +37,7 @@
 @end
 
 
-@interface PasteboardObjUtil : NSObject
+@interface GlueStick : NSObject
 
 +(ObjRepresentation*) takeObjFromPasteboardWithURL:(NSURL*)url;
 +(void) putPasteboardObj:(ObjRepresentation*)obj;

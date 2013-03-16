@@ -23,11 +23,11 @@
 		D42102CB16E288C500CA688B /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C216E288C500CA688B /* DrawViewController.m */; };
 		D42102CC16E288C500CA688B /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42102C316E288C500CA688B /* DrawViewController.xib */; };
 		D42102CD16E288C500CA688B /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C516E288C500CA688B /* Line.m */; };
-		D42102CE16E288C500CA688B /* GlueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C716E288C500CA688B /* GlueStick.m */; };
 		D42102CF16E288C500CA688B /* TouchDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = D42102C916E288C500CA688B /* TouchDrawView.m */; };
 		D42102D216E28FE500CA688B /* sketch.png in Resources */ = {isa = PBXBuildFile; fileRef = D42102D116E28FE500CA688B /* sketch.png */; };
 		D42102D416E290CC00CA688B /* sketch57.png in Resources */ = {isa = PBXBuildFile; fileRef = D42102D316E290CC00CA688B /* sketch57.png */; };
 		D42102D616E2911400CA688B /* sketch57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D42102D516E2911400CA688B /* sketch57@2x.png */; };
+		D437919416F510F400BFB87E /* GlueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = D437919216F510F400BFB87E /* GlueStick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,13 +55,13 @@
 		D42102C316E288C500CA688B /* DrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawViewController.xib; sourceTree = "<group>"; };
 		D42102C416E288C500CA688B /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		D42102C516E288C500CA688B /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
-		D42102C616E288C500CA688B /* GlueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueStick.h; path = Draw/GlueStick.h; sourceTree = "<group>"; };
-		D42102C716E288C500CA688B /* GlueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueStick.m; path = Draw/GlueStick.m; sourceTree = "<group>"; };
 		D42102C816E288C500CA688B /* TouchDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrawView.h; sourceTree = "<group>"; };
 		D42102C916E288C500CA688B /* TouchDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDrawView.m; sourceTree = "<group>"; };
 		D42102D116E28FE500CA688B /* sketch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sketch.png; sourceTree = "<group>"; };
 		D42102D316E290CC00CA688B /* sketch57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sketch57.png; path = ../sketch57.png; sourceTree = "<group>"; };
 		D42102D516E2911400CA688B /* sketch57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sketch57@2x.png"; path = "../sketch57@2x.png"; sourceTree = "<group>"; };
+		D437919216F510F400BFB87E /* GlueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlueStick.m; sourceTree = "<group>"; };
+		D437919316F510F400BFB87E /* GlueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlueStick.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +157,8 @@
 		D42102D016E288CF00CA688B /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D42102C616E288C500CA688B /* GlueStick.h */,
-				D42102C716E288C500CA688B /* GlueStick.m */,
+				D437919216F510F400BFB87E /* GlueStick.m */,
+				D437919316F510F400BFB87E /* GlueStick.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -240,8 +240,8 @@
 				D42102CA16E288C500CA688B /* ColorPicker.m in Sources */,
 				D42102CB16E288C500CA688B /* DrawViewController.m in Sources */,
 				D42102CD16E288C500CA688B /* Line.m in Sources */,
-				D42102CE16E288C500CA688B /* GlueStick.m in Sources */,
 				D42102CF16E288C500CA688B /* TouchDrawView.m in Sources */,
+				D437919416F510F400BFB87E /* GlueStick.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

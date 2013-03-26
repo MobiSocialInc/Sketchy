@@ -58,10 +58,10 @@
         // Returning data to host via Data Selection API.
 
         // Share an image:
-        [self preparePasteboardWithImage:image];
+        //[self preparePasteboardWithImage:image];
         
         // Share rich app data:
-        //[self preparePasteboardWithData:image];
+        [self preparePasteboardWithData:image];
 
         // Return to the host application:
         [[UIApplication sharedApplication] openURL:_appCallbackURL];
@@ -84,7 +84,7 @@
     UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
     [pasteboard setPersistent:YES];
 
-    ObjRepresentation* obj = [[ObjRepresentation alloc] init];
+    RichDeepLink* obj = [[RichDeepLink alloc] init];
     [obj setCallback:kSketchyAppProtocol];
     //[obj setWebCallback:@"http://myapp.com/webhandler/for/image"];
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
@@ -92,7 +92,7 @@
     [dict setObject:[NSNumber numberWithInt:1337] forKey:@"w00t"];
     [obj setJson:dict];
     [obj setDisplayNoun:@"Sketch" withTitle:@"Sketchy Sketch" withThumbnail:image withCaption:@"Hello, this is a sample post from Sketchy, you can make your own by clicking here. If you dont want to click here, then just ignore this paragraph and do something else."];
-    [GlueStick putPasteboardObj:obj];
+    [GlueStick putPasteboardRDL:obj];
 }
 
 @end

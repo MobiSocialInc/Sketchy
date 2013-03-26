@@ -17,7 +17,7 @@
 
 #import "GlueStick.h"
 
-@implementation ObjRepresentation {
+@implementation RichDeepLink {
 }
 
 @synthesize noun = _noun, displayTitle = _displayTitle, displayText = _displayText, displayThumbnail = _displayThumbnail, displayCaption = _displayCaption, json = _json, appName = _appName, callback = _callback, webCallback = _webCallback;
@@ -41,7 +41,7 @@
     _displayText = text;
     _displayTitle = title;
     if (thumbnail) {
-        _displayThumbnail = [ObjRepresentation resizeImage:thumbnail];
+        _displayThumbnail = [RichDeepLink resizeImage:thumbnail];
         _thumbnailData = UIImageJPEGRepresentation(_displayThumbnail, 0.85);
     }
 }
@@ -54,7 +54,7 @@
     _displayCaption = caption;
     _displayTitle = title;
     if (thumbnail) {
-        _displayThumbnail = [ObjRepresentation resizeImage:thumbnail];
+        _displayThumbnail = [RichDeepLink resizeImage:thumbnail];
         _thumbnailData = UIImageJPEGRepresentation(_displayThumbnail, 0.85);
     }
 }
@@ -105,8 +105,8 @@
             drawTransposed = NO;
     }
     
-    UIImage* resized = [ObjRepresentation resizedImage:image withSize:newSize
-                                             transform:[ObjRepresentation transformForOrientation:image withSize:newSize]
+    UIImage* resized = [RichDeepLink resizedImage:image withSize:newSize
+                                             transform:[RichDeepLink transformForOrientation:image withSize:newSize]
                                         drawTransposed:drawTransposed
                                   interpolationQuality:0.8];
     return resized;
@@ -198,7 +198,7 @@
 
 @implementation GlueStick
 
-+(ObjRepresentation*) takeObjFromPasteboardWithURL:(NSURL*)url {
++(RichDeepLink*) takeObjFromPasteboardWithURL:(NSURL*)url {
     UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
     NSData* archive = [pasteboard dataForPasteboardType:@"mobisocial.app"];
     NSDictionary* objDict = [NSKeyedUnarchiver unarchiveObjectWithData:archive];
@@ -210,7 +210,7 @@
         return nil;
     }
     
-    ObjRepresentation* obj = [[ObjRepresentation alloc] init];
+    RichDeepLink* obj = [[RichDeepLink alloc] init];
     NSDictionary *dict = [objDict objectForKey:@"json"];
     if (dict) {
         obj.json = [NSMutableDictionary dictionaryWithDictionary:dict];
@@ -226,7 +226,7 @@
     return obj;
 }
 
-+(void)putPasteboardObj:(ObjRepresentation*)obj {
++(void)putPasteboardRDL:(RichDeepLink*)obj {
     if (![[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"mobisocial"]) {
         NSAssert(obj.appName, @"Must specify the name of your app. You should also set a callback if you'd like your app to be launchable.");
         NSAssert(obj.noun, @"Must set a noun and at least a thumbnail or text representation.");
@@ -262,8 +262,8 @@
     [pasteboard setData:archive forPasteboardType:@"mobisocial.app"];
 }
 
-+(void)launchTwoPlusWithObj:(ObjRepresentation *)obj {
-    [GlueStick putPasteboardObj:obj];
++(void)launchTwoPlusWithRDL:(RichDeepLink *)obj {
+    [GlueStick putPasteboardRDL:obj];
     if (![GlueStick isTwoPlusInstalled]) {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"2Plus not installed." message:@"2Plus lets you share data with people in your address book, but it's not installed. Get it from the App Store." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];

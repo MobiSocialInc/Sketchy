@@ -19,7 +19,7 @@
 
 #define kMobisocialPasteboard @"mobisocial.pasteboard"
 
-@interface ObjRepresentation : NSObject
+@interface RichDeepLink : NSObject
 @property (nonatomic, strong) NSString* noun;
 @property (nonatomic, strong) NSString* displayTitle;
 @property (nonatomic, strong) NSString* displayText;
@@ -39,9 +39,9 @@
 
 @interface GlueStick : NSObject
 
-+(ObjRepresentation*) takeObjFromPasteboardWithURL:(NSURL*)url;
-+(void) putPasteboardObj:(ObjRepresentation*)obj;
-+(void) launchTwoPlusWithObj:(ObjRepresentation*) obj;
++(RichDeepLink*) takeRDLFromPasteboardWithURL:(NSURL*)url;
++(void) putPasteboardRDL:(RichDeepLink*)rdl;
++(void) launchTwoPlusWithRDL:(RichDeepLink*) rdl;
 +(BOOL) isTwoPlusInstalled;
 
 // assumes ARC

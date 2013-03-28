@@ -38,6 +38,7 @@
     [_selector6 setDelegate:self];
     
     [_saveButton addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
+    [_backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     self.drawArea.initialImage = self.initialImage;
     self.initialImage = nil;
 }
@@ -50,6 +51,8 @@
 -(void)save {
     [self dismissViewControllerAnimated:YES completion:nil];
 
+    _saveButton.hidden = YES;
+    _backButton.hidden = YES;
     UIGraphicsBeginImageContextWithOptions(self.drawArea.bounds.size, self.drawArea.opaque, 0.0);
     [self.drawArea.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -71,6 +74,16 @@
         [pasteboard setPersistent:YES];
         pasteboard.images = [NSArray arrayWithObjects:image, nil];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twoplus://app/content"]];
+    }
+}
+
+-(void)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    if (_appCallbackURL) {
+        UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
+        [pasteboard setPersistent:YES];
+        [pasteboard setItems:nil];
+        [[UIApplication sharedApplication] openURL:_appCallbackURL];
     }
 }
 

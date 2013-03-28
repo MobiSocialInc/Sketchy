@@ -35,4 +35,6 @@
 
 @property (retain, nonatomic) IBOutlet TouchDrawView *drawArea;
 @property (retain, nonatomic) IBOutlet UIButton* saveButton;
+
+@property (retain, nonatomic) IBOutlet UIButton* backButton;
 @end

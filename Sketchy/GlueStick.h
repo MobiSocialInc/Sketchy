@@ -46,7 +46,10 @@
 
 // assumes ARC
 + (NSURL*) callbackURL;
-+ (UIPasteboard*) handleOpenURL:(NSURL*)url;
+
+// lifecycle events
++ (void) handleLaunch;
++ (void) handleOpenURL:(NSURL*)url;
 
 + (NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL;
 @end

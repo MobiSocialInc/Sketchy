@@ -20,10 +20,12 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    [GlueStick handleOpenURL:url];
+
     if ([[url absoluteString] hasPrefix:kSketchyAppProtocol]) {
         DrawViewController *draw = [[DrawViewController alloc] init];
 
-        UIPasteboard* pasteboard = [GlueStick handleOpenURL:url];
+        UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:NO];
         // if we were launched to edit a picture, pull it from the pasteboard:
         draw.initialImage = pasteboard.image;
         [pasteboard setItems:nil];

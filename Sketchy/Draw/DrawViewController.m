@@ -57,7 +57,7 @@
     [self.drawArea.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
-    if ([GlueStick callbackURL]) {
+    if (GlueStick.callbackURL) {
         // Returning data to host via Data Selection API.
 
         // Share an image:

@@ -279,15 +279,17 @@ static NSURL* g_gluestick_callbackURL;
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twoplus://app/content"]];
 }
 
-+(UIPasteboard*) handleOpenURL:(NSURL*)url {
++(void) handleLaunch {
+    g_gluestick_callbackURL = nil;
+}
+
++(void) handleOpenURL:(NSURL*)url {
     g_gluestick_callbackURL = [GlueStick callbackURLFromPasteboardURL:url];
-    return [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:NO];
 }
 
 +(NSURL*) callbackURL {
     return g_gluestick_callbackURL;
 }
-
 
 +(NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL {
     NSString* callback = [self queryParameterFromURL:pasteboardURL withKey:@"callback"];

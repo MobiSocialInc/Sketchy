@@ -24,7 +24,6 @@
 }
 
 @property (nonatomic, retain) UIImage* initialImage;
-@property (nonatomic, strong) NSURL* appCallbackURL;
 
 @property (unsafe_unretained, nonatomic) IBOutlet ColorPicker *selector1;
 @property (unsafe_unretained, nonatomic) IBOutlet ColorPicker *selector2;

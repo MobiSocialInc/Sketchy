@@ -23,8 +23,7 @@
     if ([[url absoluteString] hasPrefix:kSketchyAppProtocol]) {
         DrawViewController *draw = [[DrawViewController alloc] init];
 
-        UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:NO];
-        draw.appCallbackURL = [GlueStick callbackURLFromPasteboardURL:url];
+        UIPasteboard* pasteboard = [GlueStick handleOpenURL:url];
         // if we were launched to edit a picture, pull it from the pasteboard:
         draw.initialImage = pasteboard.image;
         [pasteboard setItems:nil];

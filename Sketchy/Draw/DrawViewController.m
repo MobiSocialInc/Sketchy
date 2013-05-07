@@ -57,7 +57,7 @@
     [self.drawArea.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
-    if (_appCallbackURL) {
+    if ([GlueStick callbackURL]) {
         // Returning data to host via Data Selection API.
 
         // Share an image:
@@ -67,7 +67,7 @@
         [self preparePasteboardWithData:image];
 
         // Return to the host application:
-        [[UIApplication sharedApplication] openURL:_appCallbackURL];
+        [[UIApplication sharedApplication] openURL:[GlueStick callbackURL]];
     } else {
         // Send to 2Plus
         UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
@@ -79,11 +79,11 @@
 
 -(void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
-    if (_appCallbackURL) {
+    if ([GlueStick callbackURL]) {
         UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
         [pasteboard setPersistent:YES];
         [pasteboard setItems:nil];
-        [[UIApplication sharedApplication] openURL:_appCallbackURL];
+        [[UIApplication sharedApplication] openURL:[GlueStick callbackURL]];
     }
 }
 

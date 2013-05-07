@@ -45,5 +45,8 @@
 +(BOOL) isTwoPlusInstalled;
 
 // assumes ARC
++ (NSURL*) callbackURL;
++ (UIPasteboard*) handleOpenURL:(NSURL*)url;
+
 + (NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL;
 @end

@@ -201,7 +201,7 @@ static NSURL* g_gluestick_callbackURL;
 @implementation GlueStick
 
 +(RichDeepLink*) takeRDLFromPasteboardWithURL:(NSURL*)url {
-    UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
+    UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];
     NSData* archive = [pasteboard dataForPasteboardType:@"mobisocial.app"];
     NSDictionary* objDict = [NSKeyedUnarchiver unarchiveObjectWithData:archive];
     
@@ -235,9 +235,7 @@ static NSURL* g_gluestick_callbackURL;
         NSAssert(obj.displayText || obj.displayThumbnail, @"Can't send an object with no display properties. Must set at least a thumbnail or text representation.");
     }
     
-    UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
-    [pasteboard setPersistent:YES];
-    
+    UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];    
     NSMutableDictionary* pbDictionary = [NSMutableDictionary dictionary];
     if (obj.noun) [pbDictionary setObject:obj.noun forKey:@"noun"];
     if (obj.appName) [pbDictionary setObject:obj.appName forKey:@"appName"];
@@ -287,6 +285,14 @@ static NSURL* g_gluestick_callbackURL;
     g_gluestick_callbackURL = [GlueStick callbackURLFromPasteboardURL:url];
 }
 
++(void) finish {
+    if (g_gluestick_callbackURL) {
+        [[UIApplication sharedApplication] openURL:g_gluestick_callbackURL];
+    } else {
+        NSLog(@"WARNING, no caller app for GlueStick to return to.");
+    }
+}
+
 +(NSURL*) callbackURL {
     return g_gluestick_callbackURL;
 }
@@ -323,5 +329,16 @@ static NSURL* g_gluestick_callbackURL;
     }
     return [self urlDecodeString:param];
 }
+
++(UIPasteboard*) getPlatformPasteboard {
+    UIPasteboard* pasteboard;
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending)
+        pasteboard = [UIPasteboard generalPasteboard];
+    else
+        pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
+    [pasteboard setPersistent:YES];
+    return pasteboard;
+}
+
 
 @end

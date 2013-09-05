@@ -41,8 +41,8 @@
 
 +(RichDeepLink*) takeRDLFromPasteboardWithURL:(NSURL*)url;
 +(void) putPasteboardRDL:(RichDeepLink*)rdl;
-+(void) launchTwoPlusWithRDL:(RichDeepLink*) rdl;
-+(BOOL) isTwoPlusInstalled;
++(void) launchMessengerWithRDL:(RichDeepLink*) rdl;
++(BOOL) isMessengerInstalled;
 
 // assumes ARC
 + (NSURL*) callbackURL;

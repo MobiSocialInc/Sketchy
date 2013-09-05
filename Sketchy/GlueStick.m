@@ -262,20 +262,34 @@ static NSURL* g_gluestick_callbackURL;
     [pasteboard setData:archive forPasteboardType:@"mobisocial.app"];
 }
 
-+(void)launchTwoPlusWithRDL:(RichDeepLink *)obj {
++(void)launchMessengerWithRDL:(RichDeepLink *)obj {
     [GlueStick putPasteboardRDL:obj];
-    if (![GlueStick isTwoPlusInstalled]) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"2Plus not installed." message:@"2Plus lets you share data with people in your address book, but it's not installed. Get it from the App Store." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+
+    if ([GlueStick isOmletInstalled]) {
+        NSURL* url = [NSURL URLWithString:@"omlet://app/content"];
+        [[UIApplication sharedApplication] openURL:url];
+    } else if ([GlueStick isTwoPlusInstalled]) {
+        NSURL* url = [NSURL URLWithString:@"twoplus://app/content"];
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Omlet not installed." message:@"Omlet lets you share data with people in your address book, but it's not installed. Get it from the App Store." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
         [alert show];
     }
-    
-    NSURL* url = [NSURL URLWithString:@"twoplus://app/content"];
-    [[UIApplication sharedApplication] openURL:url];
+
+}
+
++(BOOL) isMessengerInstalled {
+    return [GlueStick isTwoPlusInstalled] || [GlueStick isOmletInstalled];
 }
 
 +(BOOL) isTwoPlusInstalled {
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twoplus://app/content"]];
 }
+
++(BOOL) isOmletInstalled {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"omlet://app/content"]];
+}
+
 
 +(void) handleLaunch {
     g_gluestick_callbackURL = nil;

@@ -61,16 +61,16 @@
         // Returning data to host via Data Selection API.
 
         // Share an image:
-        //[self preparePasteboardWithImage:image];
+        [self preparePasteboardWithImage:image];
         
         // Share rich app data:
-        [self preparePasteboardWithData:image];
+        //[self preparePasteboardWithData:image];
 
         // Return to the host application:
         [[UIApplication sharedApplication] openURL:[GlueStick callbackURL]];
     } else {
         // Send to 2Plus
-        UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
+        UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];
         [pasteboard setPersistent:YES];
         pasteboard.images = [NSArray arrayWithObjects:image, nil];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twoplus://app/content"]];
@@ -80,7 +80,7 @@
 -(void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
     if ([GlueStick callbackURL]) {
-        UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
+        UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];
         [pasteboard setPersistent:YES];
         [pasteboard setItems:nil];
         [[UIApplication sharedApplication] openURL:[GlueStick callbackURL]];
@@ -88,14 +88,12 @@
 }
 
 -(void) preparePasteboardWithImage:(UIImage*)image {
-    UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
-    [pasteboard setPersistent:YES];
+    UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];
     pasteboard.image = image;
 }
 
 -(void) preparePasteboardWithData:(UIImage*)image {
-    UIPasteboard* pasteboard = [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:YES];
-    [pasteboard setPersistent:YES];
+    UIPasteboard* pasteboard = [GlueStick getPlatformPasteboard];
 
     RichDeepLink* obj = [[RichDeepLink alloc] init];
     [obj setCallback:kSketchyAppProtocol];

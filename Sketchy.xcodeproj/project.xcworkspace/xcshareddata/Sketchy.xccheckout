@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>78088837-DE0D-477C-9BC8-8E8E71B4F9E3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Sketchy</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D0CDB8CE-E51F-4C53-AAC3-6F98760A347A</key>
+		<string>ssh://github.com/MobiSocialInc/Sketchy.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Sketchy.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D0CDB8CE-E51F-4C53-AAC3-6F98760A347A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/MobiSocialInc/Sketchy.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D0CDB8CE-E51F-4C53-AAC3-6F98760A347A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D0CDB8CE-E51F-4C53-AAC3-6F98760A347A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Sketchy</string>
+		</dict>
+	</array>
+</dict>
+</plist>
